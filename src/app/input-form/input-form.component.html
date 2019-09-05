@@ -1,0 +1,290 @@
+<div class="container register-form mt-5">
+    <div class="form">
+        <div class="note">
+          <p>Input Fields</p>
+        </div>
+        <form [formGroup]="inputFieldForm" 
+          (ngSubmit)="inputSubmit(inputFieldForm.value)" method="POST">
+        <div class="form-content">
+          <div class="col-md-12">
+            <div class="row">
+                <!-- text -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control"
+                        placeholder="Enter Text *"                    
+                        formControlName="text" name="text" id="text" 
+                        value="" required>
+        
+                        <div class="" *ngIf="inputFieldForm.controls['text'].touched">
+                            <span style="color: red;" *ngIf="inputFieldForm.controls['text'].hasError('required')">
+                                <span>*</span> Your Text is Required
+                            </span>
+                            <span style="color: red;" *ngIf="inputFieldForm.controls['text'].hasError('pattern')">
+                                <span>*</span> Invalid Pattern
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                    <!-- email     -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="email" class="form-control"
+                  placeholder="Enter Email *"                    
+                  formControlName="email" name="email" id="email" 
+                  value="" required>
+  
+                  <div class="" *ngIf="inputFieldForm.controls['email'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['email'].hasError('required')">
+                        <span>*</span> Your Email Id is Required
+                    </span>
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['email'].hasError('pattern')">
+                        <span>*</span> Invalid Pattern
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- password -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="password" class="form-control" 
+                  placeholder="Enter Password *" 
+                  formControlName="password" name="password" id="password" 
+                  value="" required>
+  
+                  <div *ngIf="inputFieldForm.controls['password'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['password'].hasError('required')">
+                        <span>*</span> Your password is Required
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- date -->
+              <div class="col-md-6">
+                <div class="form-group">
+                    <input type="date" class="form-control" 
+                    placeholder="Enter date *" 
+                    formControlName="date" name="date" id="date" 
+                    value="" required>
+    
+                    <div *ngIf="inputFieldForm.controls['date'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['date'].hasError('required')">
+                        <span>*</span> Your Date is Required
+                    </span>
+                    </div>
+                </div>
+              </div>
+              <!-- file -->
+              <div class="col-md-6">
+                <div class="form-group">
+                    <input type="file" class="form-control" 
+                    placeholder="Choose File *" 
+                    formControlName="file" name="file" id="file" 
+                    value="" required>
+    
+                    <div *ngIf="inputFieldForm.controls['file'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['file'].hasError('required')">
+                        <span>*</span> Your Date is Required
+                    </span>
+                    </div>
+                </div>
+              </div>
+              <!-- url -->
+              <div class="col-md-6">
+                <div class="form-group">
+                    <input type="url" class="form-control" 
+                    placeholder="Enter Url *" 
+                    formControlName="url" name="url" id="url" 
+                    value="" required>
+    
+                    <div *ngIf="inputFieldForm.controls['url'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['url'].hasError('required')">
+                        <span>*</span> Your Url is Required
+                    </span>
+
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['url'].hasError('pattern')">
+                        <span>*</span> Invalid Url  Pattern
+                    </span>
+                    </div>
+                </div>
+              </div>
+              <!-- number -->
+              <div class="col-md-6">
+                <div class="form-group">
+                    <input type="number" class="form-control" 
+                    placeholder="Enter Number *" 
+                    formControlName="number" name="number" id="number" 
+                    value="" required>
+    
+                    <div *ngIf="inputFieldForm.controls['number'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['number'].hasError('required')">
+                        <span>*</span> Your Number is Required
+                    </span>
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['number'].hasError('minLength')">
+                        <span>*</span> Invalid Number Pattern
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <!-- tel -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="tel" class="form-control" 
+                    placeholder="Enter Tel *" 
+                    formControlName="tel" name="tel" id="tel" 
+                    value="" required>
+    
+                    <div *ngIf="inputFieldForm.controls['tel'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['tel'].hasError('required')">
+                        <span>*</span> Your Tel is Required
+                    </span>
+
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['tel'].hasError('pattern')">
+                        <span>*</span> Invalid Pattern
+                    </span>
+                    </div>
+                </div>
+              </div>
+              <!-- dateTime -->
+              <div class="col-md-6">
+                <div class="form-group">
+                    <input type="datetime-local" class="form-control" 
+                    placeholder="DateTime *" 
+                    formControlName="datetime" name="datetime" id="datetime" 
+                    value="" required>
+    
+                    <div *ngIf="inputFieldForm.controls['datetime'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['datetime'].hasError('required')">
+                        <span>*</span> Your DateTime is Required
+                    </span>
+                    </div>
+                </div>
+              </div>
+              <!-- month -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="month" class="form-control" 
+                    placeholder="Enter Month *" 
+                    formControlName="month" name="month" id="month" 
+                    value="" required>
+    
+                    <div *ngIf="inputFieldForm.controls['month'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['month'].hasError('required')">
+                        <span>*</span> Month is Required
+                    </span>
+                    </div>
+                </div>
+              </div>
+              <!-- time -->
+              <div class="col-md-6">
+                <div class="form-group">
+                    <input type="time" class="form-control" 
+                    placeholder="Enter Time *" 
+                    formControlName="time" name="time" id="time" 
+                    value="" required>
+    
+                    <div *ngIf="inputFieldForm.controls['time'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['time'].hasError('required')">
+                        <span>*</span> Time is Required
+                    </span>
+                    </div>
+                </div>
+              </div>
+              <!-- week -->
+              <div class="col-md-6">
+                <div class="form-group">
+                    <input type="week" class="form-control" 
+                    placeholder="Enter Week *" 
+                    formControlName="week" name="week" id="week" 
+                    value="" required>
+    
+                    <div *ngIf="inputFieldForm.controls['week'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['week'].hasError('required')">
+                        <span>*</span> Week is Required
+                    </span>
+                    </div>
+                </div>
+               </div>
+               <!-- textare -->
+               <div class="col-md-6">
+                    <div class="form-group">
+                        <textarea  class="form-control" name="textarea" id="textarea" formControlName="textarea" cols="52" 
+                        rows="2" placeholder="Enter Textarea"></textarea>
+        
+                        <div *ngIf="inputFieldForm.controls['textarea'].touched">
+                        <span style="color: red;" *ngIf="inputFieldForm.controls['textarea'].hasError('required')">
+                            <span>*</span> Textarea is Required
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- dropodown -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="form-control" formControlName="dropdown" name="dropdown" id="dropdown">
+                            <option value="">Select Country</option>
+                            <option value="india">India</option>
+                            <option value="america">America</option>
+                            <option value="canada">Canada</option>
+                            <option value="australia">Australia</option>
+                        </select>
+                        <div *ngIf="inputFieldForm.controls['dropdown'].touched">
+                        <span style="color: red;" *ngIf="inputFieldForm.controls['dropdown'].hasError('required')">
+                            <span>*</span> Your Selection is Required
+                        </span>
+                        </div>
+                    </div>
+                </div>
+                
+               <!-- radio -->
+               <div class="col-md-6">
+                <div class="form-group">
+                    <input type="radio" class="" 
+                    formControlName="gender" name="gender" id="male" 
+                    value="Male" required> Male<br>
+
+                    <input type="radio" class="" 
+                    formControlName="gender" name="gender" id="female" 
+                    value="female" required > Female<br>
+
+                    <input type="radio" class="" 
+                    formControlName="gender" name="gender" id="Other" 
+                    value="Other" required> Other<br>
+    
+                    <div *ngIf="inputFieldForm.controls['gender'].touched">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['gender'].hasError('required')">
+                        <span>*</span> Your Gender Selection is Required
+                    </span>
+                    </div>
+                </div>
+                </div>
+                <!-- checkbox -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="checkbox" class=""  
+                        formControlName="vehicles" name="vehicles" id="bike" 
+                        value="bike" required> I have Bike<br>
+
+                        <input type="checkbox" class="" 
+                        formControlName="vehicles" name="vehicles" id="car" 
+                        value="car" required> I have Car<br>
+
+                        <input type="checkbox" class="" 
+                        formControlName="vehicles" name="vehicles" id="cycle" 
+                        value="cycle" required> I have Cycle<br>
+        
+                        <div *ngIf="inputFieldForm.controls['vehicles'].touched">
+                        <span style="color: red;" *ngIf="inputFieldForm.controls['vehicles'].hasError('required')">
+                            <span>*</span> Your checkbox is Required
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-md" [disabled]="!inputFieldForm.dirty">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>

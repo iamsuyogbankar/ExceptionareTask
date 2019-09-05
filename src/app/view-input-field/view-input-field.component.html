@@ -1,0 +1,20 @@
+<div class="container register-form mt-5">
+    <div class="note">
+        <p>View</p>
+    </div>
+    <div class="row">
+        <div class="card text-center mt-4 ml-3" *ngFor="let data of viewInput">
+            <div class="card-header" >
+                    <h5 class="card-title">{{data.text}}</h5>
+            </div>
+            <div class="card-body">
+                    <h5 class="card-title">{{data.email}}</h5>
+                    <h5 class="card-title">{{data.gender}}</h5>
+                    <h5 class="card-title">{{data.date}}</h5>
+                    <h5 class="card-title">{{data.dropdown}}</h5>
+                    <h5 class="card-title">{{data.number}}</h5>
+                    <h5 class="card-title">{{data.time}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
