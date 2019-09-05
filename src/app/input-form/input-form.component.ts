@@ -13,10 +13,10 @@ export class InputFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { 
 
     this.inputFieldForm = this.fb.group({
-      text: ['', [Validators.required]],
-      textarea: ['', [Validators.required]],
+      text: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$')]],
+      textarea: ['', [Validators.required, Validators.pattern('^([a-zA-Z]){10,100}?$')]],
       email: ['', [Validators.required,Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")]],
-      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      password: ['', [Validators.required, Validators.pattern("^(?=.*\d).{4,8}$")]],
       date: ['', [Validators.required, Validators.pattern('^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$')]],
       datetime: ['', [Validators.required]],
       month: ['', [Validators.required]],
@@ -24,8 +24,8 @@ export class InputFormComponent implements OnInit {
       week: ['', [Validators.required]],
       file: ['', [Validators.required]],
       url: ['', [Validators.required, Validators.pattern('^((ht|f)tp(s?))\://([0-9a-zA-Z\-]+\.)+[a-zA-Z]{2,6}(\:[0-9]+)?(/\S*)?$')]],
-      number: ['', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10), Validators.maxLength(10)]],
-      tel: ['', [Validators.required, Validators.pattern('')]],
+      number: ['', [Validators.required, Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]],
+      tel: ['', [Validators.required, Validators.pattern("^([a-zA-Z]){5}([0-9]){5}?$")]],
       gender: ['', [Validators.required]],
       vehicles: ['', [Validators.required]],
       dropdown: ['', [Validators.required]],
@@ -33,9 +33,11 @@ export class InputFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.inputSubmit();
   }
 
   inputSubmit(){
+    // alert('function call');
     console.log(this.inputFieldForm.value);
     // localStorage.removeItem('allInputField');
     var previousInputData = JSON.parse(localStorage.getItem('allInputField')) || [];

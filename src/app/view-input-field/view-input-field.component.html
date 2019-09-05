@@ -1,20 +1,43 @@
 <div class="container register-form mt-5">
-    <div class="note">
-        <p>View</p>
-    </div>
-    <div class="row">
-        <div class="card text-center mt-4 ml-3" *ngFor="let data of viewInput">
-            <div class="card-header" >
-                    <h5 class="card-title">{{data.text}}</h5>
-            </div>
+        <div class="note">
+            <p>View</p>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="card text-center ml-3" >
             <div class="card-body">
-                    <h5 class="card-title">{{data.email}}</h5>
-                    <h5 class="card-title">{{data.gender}}</h5>
-                    <h5 class="card-title">{{data.date}}</h5>
-                    <h5 class="card-title">{{data.dropdown}}</h5>
-                    <h5 class="card-title">{{data.number}}</h5>
-                    <h5 class="card-title">{{data.time}}</h5>
+                <table class="table table-hover table-responsive">
+                        <thead>
+                            <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Country Name</th>
+                            <th scope="col">Number</th>
+                            <th scope="col">Time</th>
+                            <th>Tel</th>
+                            <th>Month</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let data of viewInput">
+                            <th scope="row">{{ data.text }}</th>
+                            <td>{{ data.email}}</td>
+                            <td>{{data.gender }}</td>
+                            <td>{{ data.date}}</td>
+                            <td>{{ data.dropdown}}</td>
+                            <td>{{ data.number}}</td>
+                            <td>{{ data.time}}</td>
+                            <td>{{ data.tel }}</td>
+                            <td>{{ data.month | date:'MMMM'}}</td>
+                            </tr>                              
+                        </tbody>
+                        </table>
+                </div>
             </div>
         </div>
+        </div>
+        </div>
     </div>
-</div>

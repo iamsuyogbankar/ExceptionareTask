@@ -21,7 +21,7 @@
                                 <span>*</span> Your Text is Required
                             </span>
                             <span style="color: red;" *ngIf="inputFieldForm.controls['text'].hasError('pattern')">
-                                <span>*</span> Invalid Pattern
+                                <span>*</span> Invalid Pattern(use letters without using space)
                             </span>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         <span>*</span> Your Email Id is Required
                     </span>
                     <span style="color: red;" *ngIf="inputFieldForm.controls['email'].hasError('pattern')">
-                        <span>*</span> Invalid Pattern
+                        <span>*</span> Invalid Pattern(eg.abc@gmail.com)
                     </span>
                   </div>
                 </div>
@@ -56,6 +56,10 @@
                     <span style="color: red;" *ngIf="inputFieldForm.controls['password'].hasError('required')">
                         <span>*</span> Your password is Required
                     </span>
+
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['password'].hasError('pattern')">
+                            <span>*</span> Password must be between 4 and 8 digits long and include at least one numeric digit.
+                        </span>
                   </div>
                 </div>
               </div>
@@ -86,6 +90,10 @@
                     <span style="color: red;" *ngIf="inputFieldForm.controls['file'].hasError('required')">
                         <span>*</span> Your Date is Required
                     </span>
+
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['file'].hasError('pattern')">
+                        <span>*</span> Please upload file having extensions .pdf only
+                    </span>
                     </div>
                 </div>
               </div>
@@ -103,7 +111,7 @@
                     </span>
 
                     <span style="color: red;" *ngIf="inputFieldForm.controls['url'].hasError('pattern')">
-                        <span>*</span> Invalid Url  Pattern
+                        <span>*</span> Invalid Url Pattern
                     </span>
                     </div>
                 </div>
@@ -114,13 +122,13 @@
                     <input type="number" class="form-control" 
                     placeholder="Enter Number *" 
                     formControlName="number" name="number" id="number" 
-                    value="" required>
+                    value="" required minlength="10" maxlength="10">
     
                     <div *ngIf="inputFieldForm.controls['number'].touched">
                     <span style="color: red;" *ngIf="inputFieldForm.controls['number'].hasError('required')">
                         <span>*</span> Your Number is Required
                     </span>
-                    <span style="color: red;" *ngIf="inputFieldForm.controls['number'].hasError('minLength')">
+                    <span style="color: red;" *ngIf="inputFieldForm.controls['number'].hasError('pattern')">
                         <span>*</span> Invalid Number Pattern
                     </span>
                     </div>
@@ -132,16 +140,15 @@
                     <input type="tel" class="form-control" 
                     placeholder="Enter Tel *" 
                     formControlName="tel" name="tel" id="tel" 
-                    value="" required>
+                    value="" min="10" max="10" required>
     
                     <div *ngIf="inputFieldForm.controls['tel'].touched">
-                    <span style="color: red;" *ngIf="inputFieldForm.controls['tel'].hasError('required')">
-                        <span>*</span> Your Tel is Required
-                    </span>
-
-                    <span style="color: red;" *ngIf="inputFieldForm.controls['tel'].hasError('pattern')">
-                        <span>*</span> Invalid Pattern
-                    </span>
+                        <span style="color: red;" *ngIf="inputFieldForm.controls['tel'].hasError('required')">
+                            <span>*</span> Your Tel is Required
+                        </span>
+                        <span style="color: red;" *ngIf="inputFieldForm.controls['tel'].hasError('pattern')">
+                            <span>*</span> Invalid Tel Pattern(should be starting with 5 chars followed by 5 no's)
+                        </span>
                     </div>
                 </div>
               </div>
@@ -215,6 +222,9 @@
                         <span style="color: red;" *ngIf="inputFieldForm.controls['textarea'].hasError('required')">
                             <span>*</span> Textarea is Required
                         </span>
+                        <span style="color: red;" *ngIf="inputFieldForm.controls['textarea'].hasError('pattern')">
+                                <span>*</span> minimum 10 chars is required
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -262,28 +272,36 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <input type="checkbox" class=""  
-                        formControlName="vehicles" name="vehicles" id="bike" 
+                        formControlName="vehicles" id="bike" 
                         value="bike" required> I have Bike<br>
 
                         <input type="checkbox" class="" 
-                        formControlName="vehicles" name="vehicles" id="car" 
+                        formControlName="vehicles"  id="car" 
                         value="car" required> I have Car<br>
 
                         <input type="checkbox" class="" 
-                        formControlName="vehicles" name="vehicles" id="cycle" 
+                        formControlName="vehicles"  id="cycle" 
                         value="cycle" required> I have Cycle<br>
         
                         <div *ngIf="inputFieldForm.controls['vehicles'].touched">
                         <span style="color: red;" *ngIf="inputFieldForm.controls['vehicles'].hasError('required')">
-                            <span>*</span> Your checkbox is Required
+                            <span>*</span> Your checkbox Selection is Required
                         </span>
                         </div>
                     </div>
                 </div>
             </div>
           </div>
-          
-          <button type="submit" class="btn btn-primary btn-md" [disabled]="!inputFieldForm.dirty">Submit</button>
+          <div class="row">
+              <div class="col-md-6" >
+                <button type="submit" class="btn btn-primary btn-md" [disabled]="!inputFieldForm.dirty" >Submit</button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-primary btn-md" routerLink="/viewinputfield">View Data</button>
+              </div>
+
+          </div>
+              
         </div>
       </form>
     </div>
