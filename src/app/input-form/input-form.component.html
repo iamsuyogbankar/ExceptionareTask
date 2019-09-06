@@ -88,7 +88,7 @@
     
                     <div *ngIf="inputFieldForm.controls['file'].touched">
                     <span style="color: red;" *ngIf="inputFieldForm.controls['file'].hasError('required')">
-                        <span>*</span> Your Date is Required
+                        <span>*</span> File need to be choosed.
                     </span>
 
                     <span style="color: red;" *ngIf="inputFieldForm.controls['file'].hasError('pattern')">
@@ -240,7 +240,7 @@
                         </select>
                         <div *ngIf="inputFieldForm.controls['dropdown'].touched">
                         <span style="color: red;" *ngIf="inputFieldForm.controls['dropdown'].hasError('required')">
-                            <span>*</span> Your Selection is Required
+                            <span>*</span> Plese choose any options from list.
                         </span>
                         </div>
                     </div>
@@ -292,9 +292,9 @@
                 </div>
             </div>
           </div>
-          <div class="row">
-              <div class="col-md-6" >
-                <button type="submit" class="btn btn-primary btn-md" [disabled]="!inputFieldForm.dirty" >Submit</button>
+          <div class="finalBtn row">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-primary btn-md" [disabled]="!inputFieldForm.dirty">Submit</button>
               </div>
               <div class="col-md-6">
                 <button type="button" class="btn btn-primary btn-md" routerLink="/viewinputfield">View Data</button>

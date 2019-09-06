@@ -19,6 +19,7 @@
                             <th scope="col">Time</th>
                             <th>Tel</th>
                             <th>Month</th>
+                            <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,6 +33,7 @@
                             <td>{{ data.time}}</td>
                             <td>{{ data.tel }}</td>
                             <td>{{ data.month | date:'MMMM'}}</td>
+                            <td><i class="fa fa-trash" aria-hidden="true" (click)="onDelete(data.id)"></i></td>
                             </tr>                              
                         </tbody>
                         </table>

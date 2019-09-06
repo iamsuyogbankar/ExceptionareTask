@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-input-form',
@@ -10,7 +11,7 @@ export class InputFormComponent implements OnInit {
   inputFieldForm: FormGroup;
   public allInputData:any = [];
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, private toastr: ToastrService) { 
 
     this.inputFieldForm = this.fb.group({
       text: ['', [Validators.required, Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$')]],
@@ -33,7 +34,7 @@ export class InputFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.inputSubmit();
+    // this.inputSubmit();
   }
 
   inputSubmit(){
@@ -71,6 +72,7 @@ export class InputFormComponent implements OnInit {
       'dropdown' : this.inputFieldForm.value.dropdown,
     }
     previousInputData.push(inputdata);
+    this.toastr.success('Your data has been registered.','Congradulations', {timeOut: 1500});
 
    this.allInputData = localStorage.setItem('allInputField', JSON.stringify(previousInputData));
     this.inputFieldForm.reset();
