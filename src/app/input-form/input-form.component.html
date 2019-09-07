@@ -294,14 +294,12 @@
           </div>
           <div class="finalBtn row">
               <div class="col-md-6">
-                <button type="submit" class="btn btn-primary btn-md" [disabled]="!inputFieldForm.dirty">Submit</button>
+                <button type="submit" class="btn btn-primary btn-md" (click)="onCheck()">Submit</button>
               </div>
               <div class="col-md-6">
                 <button type="button" class="btn btn-primary btn-md" routerLink="/viewinputfield">View Data</button>
               </div>
-
-          </div>
-              
+          </div>              
         </div>
       </form>
     </div>
